@@ -11,8 +11,8 @@ dependencies:
   - name: redis
     version: "~21.2.0"
     repository: "https://charts.bitnami.com/bitnami"
-    condition: redis.enabled
+    condition: redis.deployInternal
   - name: mysql
     version: "~13.0.0"
     repository: "https://charts.bitnami.com/bitnami"
-    condition: mysql.enabled
+    condition: mysql.deployInternal

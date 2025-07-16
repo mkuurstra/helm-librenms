@@ -75,3 +75,47 @@ Create the name of the secret to use
 {{- .Release.Name -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Get the MySQL host
+*/}}
+{{- define "librenms.mysqlHost" -}}
+{{- if .Values.mysql.deployInternal -}}
+{{ .Release.Name }}-mysql
+{{- else -}}
+{{ .Values.mysql.external.host }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Get the MySQL port
+*/}}
+{{- define "librenms.mysqlPort" -}}
+{{- if .Values.mysql.deployInternal -}}
+3306
+{{- else -}}
+{{ .Values.mysql.external.port }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Get the Redis host
+*/}}
+{{- define "librenms.redisHost" -}}
+{{- if .Values.redis.deployInternal -}}
+{{ .Release.Name }}-redis-master
+{{- else -}}
+{{ .Values.redis.external.host }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Get the Redis port
+*/}}
+{{- define "librenms.redisPort" -}}
+{{- if .Values.redis.deployInternal -}}
+6379
+{{- else -}}
+{{ .Values.redis.external.port }}
+{{- end -}}
+{{- end -}}
