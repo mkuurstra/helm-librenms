@@ -88,6 +88,28 @@ Get the MySQL host
 {{- end -}}
 
 {{/*
+Get the MySQL secret
+*/}}
+{{- define "librenms.mysqlSecret" -}}
+{{- if .Values.mysql.enabled -}}
+{{ .Release.Name }}-mysql
+{{- else -}}
+{{ .Values.mysql.external.existingSecret }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Get the MySQL secret key
+*/}}
+{{- define "librenms.mysqlSecretKey" -}}
+{{- if .Values.mysql.enabled -}}
+mysql-password
+{{- else -}}
+{{ .Values.mysql.external.existingSecretKey }}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Get the MySQL port
 */}}
 {{- define "librenms.mysqlPort" -}}

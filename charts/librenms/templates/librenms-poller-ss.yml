@@ -59,8 +59,8 @@ spec:
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ if .Values.mysql.enabled }}{{ .Release.Name }}-mysql{{ else }}{{ .Values.mysql.external.existingSecret }}{{ end }}
-              key: {{ if .Values.mysql.enabled }}mysql-password{{ else }}{{ .Values.mysql.external.existingSecretKey }}{{ end }}
+              name: {{ include "librenms.mysqlSecret" . }}
+              key: {{ include "librenms.mysqlSecretKey" . }}
         {{ if not .Values.redis.enabled }}
         - name: REDIS_PASSWORD
           valueFrom:
