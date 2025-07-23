@@ -45,8 +45,7 @@ librenms:
       timeoutSeconds: 10
     # -- resources defines the computing resources (CPU and memory)
     # that are allocated to the containers running within the Pod.
-    resources:
-      {}
+    resources: {}
       # We usually recommend not to specify default resources and to leave this as a conscious
       # choice for the user. This also increases chances charts run on environments with little
       # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -65,8 +64,7 @@ librenms:
     replicas: 2
     # -- resources defines the computing resources (CPU and memory)
     # that are allocated to the containers running within the Pod.
-    resources:
-      {}
+    resources: {}
       # requests:
       #   cpu: 500m
       #   memory: 200M
@@ -87,8 +85,7 @@ librenms:
     cron: 15 * * * *
     # -- resources defines the computing resources (CPU and memory)
     # that are allocated to the containers running within the Pod.
-    resources:
-      {}
+    resources: {}
       # requests:
       #   cpu: 500m
       #   memory: 200M
@@ -120,8 +117,7 @@ librenms:
         size: 10Gi
     # -- resources defines the computing resources (CPU and memory)
     # that are allocated to the containers running within the Pod.
-    resources:
-      {}
+    resources: {}
       # requests:
       #   cpu: 100m
       #   memory: 500M
@@ -137,13 +133,13 @@ librenms:
       initialDelaySeconds: 15
       periodSeconds: 20
     envs:
-      # -- env variables RRD Cached
-      - name: TZ
-        value: "Europe/Amsterdam"
-      - name: WRITE_JITTER
-        value: "1800"
-      - name: WRITE_TIMEOUT
-        value: "1800"
+    # -- env variables RRD Cached
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: WRITE_JITTER
+      value: "1800"
+    - name: WRITE_TIMEOUT
+      value: "1800"
 
     # -- Extra environment variable for RRDCACHED container
     extraEnvs: {}
@@ -155,8 +151,7 @@ ingress:
   # -- Ingress class name
   className: ""
   # -- Ingress annotations
-  annotations:
-    {}
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   # -- Ingress ingress rules
