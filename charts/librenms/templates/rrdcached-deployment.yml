@@ -43,11 +43,6 @@ spec:
           mountPath: /data/journal
         {{end}}
         env:
-        - name: TZ
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Release.Name }}
-              key: TZ
         {{- with .Values.librenms.rrdcached.envs }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
