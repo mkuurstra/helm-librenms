@@ -33,7 +33,7 @@ spec:
           name: {{ .Release.Name }}-files
       - name: mysql
         secret:
-          secretName: {{ .Release.Name }}-mysql
+          secretName: {{ include "librenms.mysqlSecret" . }}
       initContainers:
         - name: init
           image: busybox:1.28
