@@ -30,6 +30,10 @@ spec:
       - name: files
         configMap:
           name: {{ .Release.Name }}-files
+      - name: mysql
+        secret:
+          secretName: {{ .Release.Name }}-mysql
+          optional: false 
       initContainers:
         - name: init
           image: busybox:1.28
@@ -75,6 +79,8 @@ spec:
           mountPath: /data/config/custom.php
           subPath: custom.php
           readOnly: true
+        - name: mysql
+          mountPath: "/opt/secrets/mysql/"
         - name: env-volume
           mountPath: /data/.env
           subPath: env
