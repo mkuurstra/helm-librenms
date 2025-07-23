@@ -80,7 +80,7 @@ Create the name of the secret to use
 Get the MySQL host
 */}}
 {{- define "librenms.mysqlHost" -}}
-{{- if .Values.mysql.deployInternal -}}
+{{- if .Values.mysql.enabled -}}
 {{ .Release.Name }}-mysql
 {{- else -}}
 {{ .Values.mysql.external.host }}
@@ -91,7 +91,7 @@ Get the MySQL host
 Get the MySQL port
 */}}
 {{- define "librenms.mysqlPort" -}}
-{{- if .Values.mysql.deployInternal -}}
+{{- if .Values.mysql.enabled -}}
 3306
 {{- else -}}
 {{ .Values.mysql.external.port }}
@@ -102,7 +102,7 @@ Get the MySQL port
 Get the Redis host
 */}}
 {{- define "librenms.redisHost" -}}
-{{- if .Values.redis.deployInternal -}}
+{{- if .Values.redis.enabled -}}
 {{ .Release.Name }}-redis-master
 {{- else -}}
 {{ .Values.redis.external.host }}
@@ -113,7 +113,7 @@ Get the Redis host
 Get the Redis port
 */}}
 {{- define "librenms.redisPort" -}}
-{{- if .Values.redis.deployInternal -}}
+{{- if .Values.redis.enabled -}}
 6379
 {{- else -}}
 {{ .Values.redis.external.port }}
